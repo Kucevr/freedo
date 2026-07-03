@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", "Monument Extended", sans-serif;
+  --grid-template-columns-40: repeat(40, minmax(0, 1fr));
+}
+
+@layer base {
+  /* Hide scrollbar fully */
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  html {
+    scrollbar-width: none;
+  }
+  
+  body {
+    @apply uppercase tracking-tighter bg-black text-white antialiased;
+    overflow-x: clip; /* Fix for sticky positioning while preventing horizontal scroll */
+  }
+}
