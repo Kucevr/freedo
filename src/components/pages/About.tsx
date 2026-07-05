@@ -54,7 +54,7 @@ export function About() {
             </div>
             <SplitTextReveal 
               text="We are an independent digital studio shaping platforms, products, and experiences for ambitious brands."
-              className="text-[32px] md:text-[50px] xl:text-[4vw] leading-[0.95] indent-16 tracking-tight font-medium"
+              className="text-[24px] md:text-[50px] xl:text-[4vw] leading-[0.95] indent-8 md:indent-16 tracking-tight font-medium"
             />
           </div>
         </div>
@@ -74,7 +74,7 @@ export function About() {
             <div className="text-[10px] font-mono tracking-widest text-white/50 uppercase">
               01 // Principles
             </div>
-            <div className="text-sm xl:text-base indent-8 leading-relaxed opacity-70 pr-8">
+            <div className="text-sm xl:text-base indent-6 md:indent-8 leading-relaxed opacity-70 pr-0 md:pr-8">
               Since 2014, we have shaped digital commerce through a blend of engineering depth, strategic thinking, and refined design. Our mission is to move your business forward in the digital landscape.
             </div>
           </div>
@@ -82,7 +82,7 @@ export function About() {
           <div className="col-start-1 col-span-10 md:col-start-11 md:col-span-10 xl:col-start-16 xl:col-span-22">
              <SplitTextReveal 
                 text="Real momentum happens when technology meets a clear creative vision. We don't just build websites; we shape scalable ecosystems designed for lasting growth."
-                className="text-[24px] md:text-[32px] xl:text-[2.5vw] leading-[1.1] tracking-tight font-medium indent-16"
+                className="text-[18px] md:text-[32px] xl:text-[2.5vw] leading-[1.1] tracking-tight font-medium indent-8 md:indent-16"
              />
           </div>
         </div>

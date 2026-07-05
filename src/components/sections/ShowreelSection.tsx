@@ -31,10 +31,10 @@ export function ShowreelSection() {
           </div>
 
           {/* UI Overlay matched with the grid visually */}
-          <div className="relative z-10 w-full h-full text-[10px] xl:text-[11px] font-medium tracking-tight pointer-events-none">
+          <div className="relative z-10 w-full h-full text-[9px] md:text-[10px] xl:text-[11px] font-medium tracking-tight pointer-events-none">
             
             {/* Top Bar */}
-            <div className="absolute top-0 left-0 w-full flex justify-between items-start pt-6 px-6 opacity-80">
+            <div className="absolute top-0 left-0 w-full flex justify-between items-start pt-4 px-4 md:pt-6 md:px-6 opacity-80">
               <div className="font-mono">00:02:30</div>
               
               {/* Top Timeline Bar Simulation */}
@@ -49,12 +49,13 @@ export function ShowreelSection() {
             </div>
 
             {/* Bottom Bar */}
-            <div className="absolute bottom-0 left-0 w-full flex flex-col md:flex-row md:items-end justify-between px-6 pb-6 gap-4">
+            <div className="absolute bottom-0 left-0 w-full flex flex-col md:flex-row md:items-center md:items-end justify-between px-4 pb-4 md:px-6 md:pb-6 gap-3 md:gap-4">
               
               {/* Play Button */}
-              <div className="pointer-events-auto flex items-center gap-3 cursor-pointer group/btn"
+              <div className="pointer-events-auto flex items-center gap-2 cursor-pointer group/btn w-max"
                   onMouseEnter={() => setIsPlaying(true)}
-                  onMouseLeave={() => setIsPlaying(false)}>
+                  onMouseLeave={() => setIsPlaying(false)}
+                  onClick={() => setIsPlaying(!isPlaying)}>
                 <span className="opacity-90 group-hover/btn:opacity-100 transition-opacity">Play Showreel</span>
                 <svg className="w-3 h-3 text-white transition-opacity duration-300 opacity-80 group-hover/btn:opacity-100" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M5 3l14 9-14 9V3z" />
@@ -63,14 +64,14 @@ export function ShowreelSection() {
 
               {/* Center Name Box */}
               <div className="flex items-stretch border border-white/20 bg-black/40 backdrop-blur-md opacity-90 rounded-[2px] md:absolute md:left-1/2 md:-translate-x-1/2 w-max">
-                <div className="px-4 py-1.5 font-mono opacity-60">04.</div>
-                <div className="px-5 py-1.5 border-l border-white/20 uppercase tracking-widest text-[#cfcfcf]">
+                <div className="px-3 py-1 md:px-4 md:py-1.5 font-mono opacity-60">04.</div>
+                <div className="px-4 py-1 md:px-5 md:py-1.5 border-l border-white/20 uppercase tracking-widest text-[#cfcfcf]">
                   AI CONTENT CREATION
                 </div>
               </div>
 
               {/* Right Label */}
-              <div className="opacity-70 uppercase tracking-widest text-right">
+              <div className="opacity-70 uppercase tracking-widest text-left md:text-right">
                 MIE©2025_SHOWRELL.MP4
               </div>
             </div>

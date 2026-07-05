@@ -129,7 +129,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ images, title, category, clas
 export function Projects() {
   const projectsData = [
     {
-      colSpan: "col-start-2 col-span-12",
+      colSpan: "col-start-2 col-span-38 md:col-start-2 md:col-span-12",
       partner: "Northlane",
       services: "eCommerce Development, Design UX/UI, System Integration, Custom App",
       images: [
@@ -139,7 +139,7 @@ export function Projects() {
       ]
     },
     {
-      colSpan: "col-start-22 col-span-18",
+      colSpan: "col-start-2 col-span-38 md:col-start-22 md:col-span-18 mt-8 md:mt-0",
       partner: "Meridian",
       services: "eCommerce Development, Design UX/UI, System Integration, SEO, Data Analysis",
       images: [
@@ -148,7 +148,7 @@ export function Projects() {
       ]
     },
     {
-      colSpan: "col-start-12 col-span-10 mt-24",
+      colSpan: "col-start-2 col-span-38 md:col-start-12 md:col-span-10 mt-8 md:mt-24",
       partner: "Solstice",
       services: "Design UX/UI",
       images: [
@@ -157,7 +157,7 @@ export function Projects() {
       ]
     },
     {
-      colSpan: "col-start-23 col-span-8 mt-24",
+      colSpan: "col-start-2 col-span-38 md:col-start-23 md:col-span-8 mt-8 md:mt-24",
       partner: "Monza Atelier",
       services: "eCommerce Development, Design UX/UI, Custom App",
       images: [
@@ -166,7 +166,7 @@ export function Projects() {
       ]
     },
     {
-      colSpan: "col-start-32 col-span-8 mt-24",
+      colSpan: "col-start-2 col-span-38 md:col-start-32 md:col-span-8 mt-8 md:mt-24",
       partner: "Arcline",
       services: "eCommerce Development, Design UX/UI, SEO",
       images: [
@@ -176,26 +176,26 @@ export function Projects() {
     },
     // Adding more mock data to fill the grid based on image structure
     {
-      colSpan: "col-start-12 col-span-10 mt-32",
+      colSpan: "col-start-2 col-span-38 md:col-start-12 md:col-span-10 mt-8 md:mt-32",
       partner: "Lumen",
       services: "Design UX/UI, Custom App",
       images: ["/image/p8.JPG"]
     },
     {
-      colSpan: "col-start-23 col-span-17 mt-32 aspect-[16/9]",
+      colSpan: "col-start-2 col-span-38 md:col-start-23 md:col-span-17 mt-8 md:mt-32 aspect-[16/9]",
       partner: "Eight Point",
       services: "eCommerce Development, Design UX/UI, System Integration",
       images: ["/image/p9.JPG"]
     },
     // Row 4
     {
-      colSpan: "col-start-12 col-span-10 mt-32",
+      colSpan: "col-start-2 col-span-38 md:col-start-12 md:col-span-10 mt-8 md:mt-32",
       partner: "Kairo",
       services: "eCommerce Development, SEO",
       images: ["/image/p10.JPG"]
     },
     {
-      colSpan: "col-start-23 col-span-10 mt-32",
+      colSpan: "col-start-2 col-span-38 md:col-start-23 md:col-span-10 mt-8 md:mt-32",
       partner: "Vanta",
       services: "Custom App, Data Analysis",
       images: ["/image/p7.JPG"]
@@ -210,16 +210,16 @@ export function Projects() {
       <main className="pt-32 pb-40 px-6">
         
         {/* Top Header Labels */}
-        <div className="grid grid-cols-40 gap-x-0 text-[10px] uppercase font-mono tracking-widest text-[#666] mb-12">
-          <div className="col-start-2 col-span-4">Signal Design</div>
-          <div className="col-start-20 col-span-4">Growth Systems</div>
-          <div className="col-start-36 col-span-4 text-right">Build Logic</div>
+        <div className="flex md:grid md:grid-cols-40 gap-x-0 justify-between text-[8px] md:text-[10px] uppercase font-mono tracking-widest text-[#666] mb-12">
+          <div className="md:col-start-2 md:col-span-4">Signal Design</div>
+          <div className="hidden md:block md:col-start-20 md:col-span-4 text-center">Growth Systems</div>
+          <div className="md:col-start-36 md:col-span-4 text-right">Build Logic</div>
         </div>
 
         {/* Huge Title Statement */}
         <div className="grid grid-cols-40 gap-x-0 mb-32">
           <div className="col-start-2 col-span-38">
-            <h1 className="text-[3vw] leading-[0.95] indent-16 tracking-tight font-medium">
+            <h1 className="text-[20px] md:text-[32px] xl:text-[3vw] leading-[0.95] indent-8 md:indent-16 tracking-tight font-medium">
               <SplitTextReveal text="WE BUILD COMMERCE SYSTEMS WITH A CLEAR POINT OF VIEW, BLENDING PRODUCT DESIGN, PLATFORM ENGINEERING, GROWTH OPS, DATA LAYERING AND THE KIND OF STRUCTURE THAT LETS BRAND WORLDS SCALE WITH CONFIDENCE." />
             </h1>
             <div className="mt-8 text-2xl font-mono tracking-wide">[All]</div>

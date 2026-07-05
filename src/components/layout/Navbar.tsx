@@ -49,8 +49,8 @@ export function Navbar() {
   };
 
   return (
-    <nav className="fixed top-0 w-full z-40 p-5 px-10 font-sans pointer-events-none" style={{ WebkitFontSmoothing: 'antialiased', MozOsxFontSmoothing: 'grayscale', transform: 'translateZ(0)' }}>
-      <div className="grid grid-cols-10 gap-x-4 w-full tracking-tight text-[10px] xl:text-[12px] pointer-events-auto items-start">
+    <nav className="fixed top-0 w-full z-40 p-5 px-6 md:px-10 font-sans pointer-events-none" style={{ WebkitFontSmoothing: 'antialiased', MozOsxFontSmoothing: 'grayscale', transform: 'translateZ(0)' }}>
+      <div className="flex md:grid md:grid-cols-10 md:gap-x-4 justify-between items-center md:items-start w-full tracking-tight text-[10px] xl:text-[12px] pointer-events-auto">
         
         {/* Col 1: Logo */}
         <div className="col-start-1 col-span-2 text-white mix-blend-difference">
@@ -78,10 +78,10 @@ export function Navbar() {
         </div>
 
         {/* Col 10: Menu */}
-        <div className="col-start-10 flex md:justify-end items-start gap-4 uppercase font-semibold">
-          <span className="text-white/80 cursor-pointer hover:text-white transition-colors pt-1.25 uppercase mix-blend-difference">IT</span> 
+        <div className="col-start-10 flex md:justify-end items-center md:items-start gap-4 uppercase font-semibold">
+          <span className="text-white/80 cursor-pointer hover:text-white transition-colors uppercase mix-blend-difference">IT</span> 
           
-          <div ref={menuWrapperRef} className="flex flex-col text-white min-w-25 xl:min-w-32.5 font-medium tracking-normal text-[11px] xl:text-xs relative z-50">
+          <div ref={menuWrapperRef} className="flex flex-col text-white min-w-28 md:min-w-25 xl:min-w-32.5 font-medium tracking-normal text-[11px] xl:text-xs relative z-50">
              <button 
                 onClick={() => setMenuOpen(!menuOpen)} 
                 className="group w-full bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 hover:border-white/30 transition-all duration-300 rounded-xl text-left px-4 py-2 capitalize font-semibold tracking-wide flex justify-between relative overflow-hidden shadow-lg"
@@ -89,7 +89,7 @@ export function Navbar() {
                <AnimatedCharLink text="Menu" />
              </button>
 
-             <div ref={dropdownRef} className="absolute top-[calc(100%+0.5rem)] left-0 right-0 flex flex-col bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl w-full capitalize overflow-hidden shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] z-[101] px-1.5 py-1.5">
+             <div ref={dropdownRef} className="absolute top-[calc(100%+0.5rem)] right-0 left-auto md:left-0 md:right-auto flex flex-col bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl w-40 md:w-full capitalize overflow-hidden shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] z-[101] px-1.5 py-1.5" style={{ display: menuOpen ? 'flex' : 'none' }}>
                  <a href="/projects" onClick={(e) => handleLinkClick(e, '/projects', 'Projects')} className="group menu-item w-full px-3 py-2 rounded-xl hover:bg-white/15 transition-colors overflow-hidden"><AnimatedCharLink text="Projects" /></a>
                  <div className="h-px bg-white/10 w-full my-0.5 mx-auto max-w-[90%]" />
                  <a href="/about" onClick={(e) => handleLinkClick(e, '/about', 'About')} className="group menu-item w-full px-3 py-2 rounded-xl hover:bg-white/15 transition-colors overflow-hidden"><AnimatedCharLink text="About" /></a>
@@ -102,7 +102,6 @@ export function Navbar() {
              </div>
           </div>
         </div>
-        
       </div>
     </nav>
   );

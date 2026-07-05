@@ -44,13 +44,13 @@ export function Hero({ ready }: { ready: boolean }) {
       </div>
 
       {/* Decorative text based on grid */}
-      <div className="absolute top-[28%] w-full grid grid-cols-10 gap-x-4 px-10 z-10 pointer-events-none text-white opacity-80 text-[10px] xl:text-[12px] font-medium tracking-tight">
+      <div className="absolute top-[28%] w-full hidden md:grid grid-cols-10 gap-x-4 px-10 z-10 pointer-events-none text-white opacity-80 text-[10px] xl:text-[12px] font-medium tracking-tight">
          <div className="col-start-1 col-span-2 hero-decor capitalize">Strategy Layer</div>
          <div className="col-start-5 col-span-2 hero-decor text-center capitalize">Growth Layer</div>
          <div className="col-start-9 col-span-2 hero-decor text-right capitalize">Build Layer</div>
       </div>
 
-      <div className="z-10 mix-blend-difference flex flex-col items-center justify-center w-full px-4 pt-48">
+      <div className="z-10 mix-blend-difference flex flex-col items-center justify-center w-full px-4 pt-32 md:pt-48">
         <div className="text-center font-black leading-[0.85] tracking-tighter text-[11vw] flex flex-col items-center">
            <div className="flex gap-2 overflow-hidden pb-4 -mb-4"><span className="hero-word inline-block origin-bottom">FREEDO</span></div>
            <div className="flex gap-2 overflow-hidden pb-4 -mb-4"><span className="hero-word inline-block origin-bottom">COMMERCE</span></div>

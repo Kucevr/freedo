@@ -82,8 +82,8 @@ export function CaseStudies() {
   return (
     <section ref={containerRef} className="case-studies-container relative w-full pt-16 pb-32">
       
-      {/* Central Fixed Image Container */}
-      <div className="absolute inset-0 z-20 pointer-events-none flex justify-center items-start pt-20 xl:pt-40.5">
+      {/* Central Fixed Image Container (Desktop only) */}
+      <div className="absolute inset-0 z-20 pointer-events-none hidden lg:flex justify-center items-start pt-20 xl:pt-40.5">
         <div className="sticky top-37.5 w-55 xl:w-82.5 aspect-4/5">
           {CASE_DATA.map((row, i) => (
             <div
@@ -102,33 +102,71 @@ export function CaseStudies() {
         </div>
       </div>
 
-      {/* Header Row */}
-      <div className="relative z-10 grid grid-cols-40 gap-x-0 px-0 pb-20 text-[10px] xl:text-[12px] text-white/50 tracking-tight pointer-events-none">
-        <div className="col-start-2 col-span-1 text-left capitalize">Partner</div>
-        <div className="col-start-10 col-span-1 capitalize text-right">Platform</div>
-        <div className="col-start-18 col-span-6 text-white/50 normal-case text-center">(&nbsp;&nbsp;&nbsp;FREEDO WORKS&nbsp;&nbsp;&nbsp;)</div>
-        <div className="col-start-39 col-span-1 text-right capitalize">Service</div>
+      {/* Desktop Grid and List (Desktop only) */}
+      <div className="hidden lg:block w-full">
+        {/* Header Row */}
+        <div className="relative z-10 grid grid-cols-40 gap-x-0 px-0 pb-20 text-[10px] xl:text-[12px] text-white/50 tracking-tight pointer-events-none">
+          <div className="col-start-2 col-span-1 text-left capitalize">Partner</div>
+          <div className="col-start-10 col-span-1 capitalize text-right">Platform</div>
+          <div className="col-start-18 col-span-6 text-white/50 normal-case text-center">(&nbsp;&nbsp;&nbsp;FREEDO WORKS&nbsp;&nbsp;&nbsp;)</div>
+          <div className="col-start-39 col-span-1 text-right capitalize">Service</div>
+        </div>
+
+        {/* Table Rows */}
+        <div 
+          className="relative w-full flex flex-col gap-y-4 uppercase font-sans"
+          onMouseLeave={handleSectionLeave}
+        >
+          {CASE_DATA.map((row, i) => (
+            <div 
+              key={i} 
+              onMouseEnter={() => handleMouseEnter(i)}
+              className="group relative grid grid-cols-40 h-8 items-center hover:bg-white hover:text-black transition-colors duration-150 cursor-pointer z-30 mix-blend-difference"
+            >
+              <div className="col-start-2 col-span-4 tracking-wide font-medium xl:text-sm">{row.partner}</div>
+              <div className="col-start-10 col-span-4 text-left tracking-wide font-light opacity-80 group-hover:opacity-100 xl:text-[13px]">{row.platform}</div>
+              
+              <div className="col-start-28 col-span-1 opacity-60 normal-case xl:text-xs text-center">{row.index}</div>
+              <div className="col-start-32 col-span-8 text-right pr-4 text-[9px] xl:text-[12px] tracking-[0.03em] normal-case truncate lg:whitespace-normal leading-snug font-medium opacity-90 group-hover:opacity-100">{row.service}</div>
+            </div>
+          ))}
+        </div>
       </div>
 
-      {/* Table Rows */}
-      <div 
-        className="relative w-full flex flex-col gap-y-4 uppercase font-sans"
-        onMouseLeave={handleSectionLeave}
-      >
-        {CASE_DATA.map((row, i) => (
-          <div 
-            key={i} 
-            onMouseEnter={() => handleMouseEnter(i)}
-            className="group relative grid grid-cols-40 h-8 items-center hover:bg-white hover:text-black transition-colors duration-150 cursor-pointer z-30 mix-blend-difference"
-          >
-            <div className="col-start-2 col-span-4 tracking-wide font-medium xl:text-sm">{row.partner}</div>
-            <div className="col-start-10 col-span-4 text-left tracking-wide font-light opacity-80 group-hover:opacity-100 xl:text-[13px]">{row.platform}</div>
-            
-            <div className="col-start-28 col-span-1 opacity-60 normal-case xl:text-xs text-center">{row.index}</div>
-            <div className="col-start-32 col-span-8 text-right pr-4 text-[9px] xl:text-[12px] tracking-[0.03em] normal-case truncate lg:whitespace-normal leading-snug font-medium opacity-90 group-hover:opacity-100">{row.service}</div>
-          </div>
-        ))}
+      {/* Mobile Card List (below lg) */}
+      <div className="block lg:hidden w-full px-6">
+        <div className="text-[10px] text-white/50 tracking-tight text-center normal-case mb-12">
+          (&nbsp;&nbsp;&nbsp;FREEDO WORKS&nbsp;&nbsp;&nbsp;)
+        </div>
+        
+        <div className="flex flex-col gap-10">
+          {CASE_DATA.map((row, i) => (
+            <div key={i} className="flex flex-col gap-3 group uppercase">
+              {/* Project Image */}
+              <div className="w-full aspect-[4/5] bg-neutral-900 overflow-hidden relative border border-white/5">
+                <img 
+                  src={row.image} 
+                  alt={row.partner} 
+                  className="w-full h-full object-cover opacity-90 transition-transform duration-700 group-hover:scale-102 grayscale-20"
+                />
+              </div>
+              
+              {/* Details */}
+              <div className="flex justify-between items-start text-xs font-sans mt-1">
+                <div className="flex flex-col gap-1">
+                  <span className="font-semibold tracking-wide text-sm">{row.partner}</span>
+                  <span className="font-mono text-[10px] text-white/50">{row.platform}</span>
+                </div>
+                
+                <div className="text-right text-[10px] text-white/70 max-w-[65%] normal-case leading-relaxed font-medium">
+                  {row.service}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
+
     </section>
   );
 }

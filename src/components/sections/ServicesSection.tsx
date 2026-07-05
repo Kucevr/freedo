@@ -55,49 +55,54 @@ export function ServicesSection() {
       </div>
 
       {/* Big Text Container */}
-      <div className="relative z-10 w-full grid grid-cols-10 md:grid-cols-20 gap-x-0 px-0 mb-20">
+      <div className="relative z-10 w-full grid grid-cols-1 md:grid-cols-20 gap-x-0 px-6 md:px-0 mb-16 md:mb-20">
         <SplitTextReveal 
           text="Freedo is a commerce studio built around one idea: clarity across the entire system. Strategy, build, growth and operations move together, so every part of the brand can scale without friction."
-          className="reveal-big-text indent-20 col-start-1 col-span-10 md:col-start-3 md:col-span-17 xl:col-start-2 xl:col-span-18 text-[32px] md:text-[40px] xl:text-[40px] font-medium leading-[0.85] tracking-[-0.05em] mix-blend-difference"
+          className="reveal-big-text indent-12 md:indent-20 col-span-1 md:col-start-3 md:col-span-17 xl:col-start-2 xl:col-span-18 text-[24px] md:text-[40px] xl:text-[40px] font-medium leading-[0.85] tracking-[-0.05em] mix-blend-difference"
         />
       </div>
 
       {/* Sub headers */}
-      <div className="relative z-10 w-full grid grid-cols-10 md:grid-cols-40 gap-x-0 px-6 mb-4 text-[10px] xl:text-[12px] font-medium tracking-tight text-white/50 capitalize">
-        <div className="col-start-1 col-span-4 pl-4">Core Layers</div>
-        <div className="col-start-9 md:col-start-15 xl:col-start-34 col-span-2 text-left">Edition 2026</div>
+      <div className="relative z-10 w-full flex justify-between items-center md:grid md:grid-cols-40 gap-x-0 px-6 mb-4 text-[10px] xl:text-[12px] font-medium tracking-tight text-white/50 capitalize">
+        <div className="md:col-start-1 md:col-span-4 pl-0 md:pl-4">Core Layers</div>
+        <div className="md:col-start-34 md:col-span-2 text-right md:text-left">Edition 2026</div>
       </div>
 
       {/* Grid Boxes */}
-      <div className="relative z-10 w-full grid grid-cols-10 md:grid-cols-40 gap-x-0 px-10 h-max min-h-75">
+      <div className="relative z-10 w-full grid grid-cols-1 md:grid-cols-40 gap-x-0 px-6 md:px-10 h-max">
         
-        {/* The 4 boxes span exactly the first 8 columns collectively (using 2 cols out of 10 each, or 4 out of 20) */}
+        {/* The 4 boxes span exactly the first 8 columns collectively on desktop, stack on mobile */}
         {SERVICES_DATA.map((item, i) => (
           <div 
             key={i}
             onMouseEnter={() => setHoveredIndex(i)}
             onMouseLeave={() => setHoveredIndex(null)}
-            className="md:col-span-8 col-span-2 relative overflow-hidden transition-all duration-500 ease-out border-r border-white-[0.02] last:border-r-0 group cursor-pointer"
+            onClick={() => setHoveredIndex(hoveredIndex === i ? null : i)}
+            className="col-span-1 md:col-span-8 relative overflow-hidden transition-all duration-500 ease-out border-b md:border-b-0 md:border-r border-white/5 last:border-b-0 md:last:border-r-0 group cursor-pointer"
             style={{ 
                backgroundColor: hoveredIndex === i ? 'rgba(255,255,255,0.08)' : (hoveredIndex !== null ? 'transparent' : 'rgba(255,255,255,0.03)')
             }}
           >
             {/* Box Inner Content */}
-            <div className="p-4 md:p-6 w-full h-full flex flex-col justify-between min-h-75">
+            <div className="p-5 md:p-6 w-full h-full flex flex-col justify-between min-h-56 md:min-h-75">
               <div className="flex justify-between items-start">
                 <h3 className="text-sm border-white/10 md:text-base font-semibold leading-tight w-2/3 wrap-break-word">
-                  {item.title.split(' ').map((w) => <>{w}<br/></>)}
+                  {item.title.split(' ').map((w, index) => <span key={index}>{w}<br/></span>)}
                 </h3>
-                <span className={`text-[10px] font-mono opacity-60 transition-opacity duration-300 ${hoveredIndex === i ? 'opacity-100' : 'opacity-0'}`}>
+                <span className={`text-[10px] font-mono opacity-60 transition-opacity duration-300 ${hoveredIndex === i ? 'opacity-100' : 'opacity-0 md:opacity-0'}`}>
                   {item.index}
                 </span>
               </div>
 
-              <div className="mt-auto flex flex-col gap-1 text-[10px] xl:text-xs leading-none opacity-80 tracking-tight">
+              <div className="mt-8 md:mt-auto flex flex-col gap-1 text-[10px] xl:text-xs leading-none opacity-80 tracking-tight">
                 {item.list.map((li, j) => (
                   <div 
                     key={j}
-                    className={`transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] transform ${hoveredIndex === i ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
+                    className={`transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] transform ${
+                      hoveredIndex === i 
+                        ? 'translate-y-0 opacity-100' 
+                        : (hoveredIndex === null ? 'opacity-100 translate-y-0 md:opacity-0 md:translate-y-4' : 'translate-y-4 opacity-0')
+                    }`}
                     style={{ transitionDelay: hoveredIndex === i ? `${j * 0.04}s` : '0s' }}
                   >
                     {li}
@@ -109,7 +114,7 @@ export function ServicesSection() {
         ))}
 
         {/* Right side text */}
-        <div className="reveal-small-text col-start-9 col-span-2 md:col-start-34 md:col-span-8 xl:col-start-34 xl:col-span-8 flex flex-col gap-6 text-[10px] xl:text-[12px] leading-[1.2] font-medium pl-0 md:pl-4 pt-6 text-white/90">
+        <div className="reveal-small-text col-span-1 md:col-start-34 md:col-span-8 xl:col-start-34 xl:col-span-8 flex flex-col gap-6 text-[10px] xl:text-[12px] leading-[1.2] font-medium pl-0 md:pl-4 pt-8 md:pt-6 text-white/90">
           <SplitTextReveal className="indent-6" text="Every eCommerce is already in motion. Processes, people, numbers, decisions. Our job isn't to sit on top of it. It's to step inside." />
           <SplitTextReveal className="indent-6" text="We work alongside teams, read the business, identify where energy is being lost and where it needs to be amplified. We don't operate in silos: design, technology and marketing move together, because that's how growth becomes sustainable." />
           <SplitTextReveal className="indent-6" text="With in-house teams collaborating in real time, we reduce friction, align decisions and turn complexity into structure. We don't add noise. We bring direction." />
